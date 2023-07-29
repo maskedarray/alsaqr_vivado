@@ -1,0 +1,37 @@
+package:
+  name: serial_link
+  authors:
+    - "Thomas Benz <tbenz@iis.ee.ethz.ch>"
+    - "Paul Scheffler <paulsc@iis.ee.ethz.ch>"
+    - "Florian Zaruba <zarubaf@iis.ee.ethz.ch>"
+    - "Fabian Schuiki <fschuiki@iis.ee.ethz.ch>"
+
+dependencies:
+  common_cells:        { git: "https://github.com/pulp-platform/common_cells.git",       version: 1.21.0 }
+  axi:                 { git: "https://github.com/pulp-platform/axi.git",                version: 0.29.1 }
+  register_interface:  { git: "git@github.com:AlSaqr-platform/register_interface.git",   version:  0.3.2 }
+
+sources:
+  files:
+    - target: synthesis
+      files:
+      - src/serial_link_synth_wrapper.sv
+      
+    - target: all(fpga,xilinx)
+      defines:
+        FPGA_EMUL: ~
+      files:
+        - models/generic_delay_D4_O2_3P750_1P875_CG1.fpga.sv
+
+    - target: simulation
+      files:
+      - models/generic_delay_D4_O2_3P750_1P875_CG1.behav.sv
+      - test/src/axi_to_mem.sv
+      - test/axi_channel_compare.sv
+      - test/fixture_serial_link.sv
+      - test/tb_serial_link.sv
+      - test/tb_axi_serial_link.sv
+
+    - src/serial_link_pkg.sv
+    - src/serial_link_delay.sv
+    - src/serial_link.sv
