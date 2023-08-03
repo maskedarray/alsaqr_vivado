@@ -297,7 +297,7 @@ module host_domain
     .AxiLiteDataWidth ( AXI_LITE_DW                   ),
     .lite_req_t       ( ariane_axi_soc::req_lite_t    ),
     .lite_resp_t      ( ariane_axi_soc::resp_lite_t   )
-  ) (
+  ) pmu_unit0 (
     .clk_i               ( s_soc_clk            ),
     .rst_ni              ( s_synch_soc_rst      ),
     .spu_in              ( spu_out              ),

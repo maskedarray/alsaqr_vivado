@@ -195,7 +195,7 @@ module apb_subsystem
          .AXI_USER_WIDTH ( AXI_USER_WIDTH           ),
          .APB_ADDR_WIDTH ( 32                       ),
          .APB_DATA_WIDTH ( 32                       )
-         )(
+   ) axi2apb_wrap_u01 (
            .clk_i      ( clk_soc_o                  ),
            .rst_ni     ( s_rstn_soc_sync            ),
            .test_en_i  ( 1'b0                       ),
@@ -205,7 +205,7 @@ module apb_subsystem
          );
 
    periph_bus_wrap #(
-                     )(
+                     ) periph_bus_wrap_u01 (
     .clk_i(clk_soc_o),
     .rst_ni(s_rstn_soc_sync),
     .apb_slave(apb_peripheral_master_bus),
