@@ -1,5 +1,5 @@
 # This script was generated automatically by bender.
-set ROOT [get_property DIRECTORY [current_project]]/sources
+set ROOT "./sources"
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/.bender/git/checkouts/tech_cells_generic-e11955931dff1991/src/fpga/pad_functional_xilinx.sv \
     $ROOT/.bender/git/checkouts/tech_cells_generic-e11955931dff1991/src/fpga/tc_clk_xilinx.sv \
@@ -748,18 +748,18 @@ add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/.bender/git/checkouts/apb_node-540faccb71578253/src/apb_node_wrap.sv \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/apb_uart.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_clock_div.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_counter.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_edge_detect.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_fifo.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_input_filter.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_input_sync.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/slib_mv_filter.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/uart_baudgen.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/uart_interrupt.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/uart_receiver.vhd \
-    /home/ubuntu_20/abdur_clean/he-soc/fpga/src/apb_uart/src/uart_transmitter.vhd \
+    $ROOT/../fpga/src/apb_uart/src/apb_uart.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_clock_div.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_counter.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_edge_detect.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_fifo.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_input_filter.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_input_sync.vhd \
+    $ROOT/../fpga/src/apb_uart/src/slib_mv_filter.vhd \
+    $ROOT/../fpga/src/apb_uart/src/uart_baudgen.vhd \
+    $ROOT/../fpga/src/apb_uart/src/uart_interrupt.vhd \
+    $ROOT/../fpga/src/apb_uart/src/uart_receiver.vhd \
+    $ROOT/../fpga/src/apb_uart/src/uart_transmitter.vhd \
 ]
 add_files -norecurse -fileset [current_fileset] [list \
     $ROOT/.bender/git/checkouts/axi_llc-e510d6e1b8958661/src/axi_llc_demux.sv \

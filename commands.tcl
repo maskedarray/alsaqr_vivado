@@ -1,7 +1,13 @@
-cd [get_property DIRECTORY [current_project]]
+set outputDir reports
+file mkdir $outputDir
+create_project alsaqr ./ -part xcvu9p-flga2104-2L-e
 source ./sources/alsaqr/tcl/generated/compile.tcl
 set_property top alsaqr_xilinx [current_fileset]
 
+create_ip -name dist_mem_gen -vendor xilinx.com -library ip -version 8.0 -module_name xilinx_rom_bank_1024x64
+create_ip -name clk_wiz -vendor xilinx.com -library ip -module_name xilinx_clk_mngr
+create_ip -name ddr4 -vendor xilinx.com -library ip -version 2.2 -module_name ddr4_0
+create_ip -name axi_quad_spi -vendor xilinx.com -library ip -version 3.2 -module_name xilinx_qspi
 # add ip distributed memory generator and name it: xilinx_rom_bank_1024x64 if version option is available: version=8.0
 # add ip clk_wiz and name it: xilinx_clk_mngr
 # add ip ddr4 and name it ddr4_0
@@ -47,7 +53,10 @@ add_files -fileset constrs_1 -norecurse "./sources/alsaqr/tcl/fmc_board_validati
 read_xdc ./sources/alsaqr/tcl/constraints.xdc
 add_files -fileset constrs_1 -norecurse "./sources/alsaqr/tcl/constraints_peripherals.xdc"
 
-
+update_compile_order -fileset sources_1
                         
-
+synth_design
+update_compile_order -fileset sources_1
+opt_design
+place_design
 
