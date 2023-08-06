@@ -133,7 +133,7 @@ module pmu_top #(
     // If the reg_load_i signal is True for any register than any AXI4-Lite 
     // to that register in that clock cycle is stalled.
     always_comb begin
-        reg_load_i.StrbMap.timer            = 1;
+        reg_load_i.StrbMap.timer            = {TimerAlignToBytes{1'b1}};
         reg_load_i.StrbMap.periodReg        = 0;
         reg_load_i.StrbMap.eventSelCfg      = 0;
         reg_load_i.StrbMap.eventInfoCfg     = 0;
